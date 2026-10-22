@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Imp
+  m_EditorClassIdentifier: 
+  m_GroupName: Imp
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 72a77d2dc64cf304ebc28ee310d327ee
+  m_SerializeEntries:
+  - m_GUID: 4347a1d2080120942a641e274b5507f5
+    m_Address: Assets/Resources_moved/Prefabs/Imp_Red.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 46b10f2b7189370498db0e9c9db0e6b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0100f09feaa427d4aacaf7c11ec94333, type: 2}
+    - {fileID: 11400000, guid: b2520e008489e574ca047ac60912608c, type: 2}

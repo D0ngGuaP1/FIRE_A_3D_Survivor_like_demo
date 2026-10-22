@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ScriptableObject Event Channels
+  m_EditorClassIdentifier: 
+  m_GroupName: ScriptableObject Event Channels
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b8b6043980875aa4aaf1fa98a9ac6816
+  m_SerializeEntries:
+  - m_GUID: 20746e7f369e07f46b8771ac586c0f49
+    m_Address: Assets/ScriptableObject/EventChannels/Basic PlayerDeathChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27d07fda00cca244da8cd7d0a2323ab1
+    m_Address: Assets/ScriptableObject/EventChannels/Basic PlayerTakeDamageChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41607506d30a9f64c8a8ba87e7bdfd24
+    m_Address: Assets/ScriptableObject/EventChannels/Basic AcquireRewardChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9099563323f554b4c874e22cfccbd293
+    m_Address: Assets/ScriptableObject/EventChannels/Basic EnemyDeathChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b47ab25facd0af04e8716f4f6755fd22
+    m_Address: Assets/ScriptableObject/EventChannels/Basic LevelUpChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b80d74709d337e54ab4446ed4c9dac6d
+    m_Address: Assets/ScriptableObject/EventChannels/Basic TakeDamageChannel.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SO Event Channel
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 46b10f2b7189370498db0e9c9db0e6b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e8e2a971bd3c50e4c979f4718a181ec1, type: 2}
+    - {fileID: 11400000, guid: 0501bfc2daa7b6840a1c2d0b36875055, type: 2}

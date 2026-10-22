@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb11b8d5fe9c2e47a29c6e24588129d, type: 3}
+  m_Name: ApplyDoTReward
+  m_EditorClassIdentifier: 
+  displayName: "\u706B\u4E0A\u6D47\u6CB9"
+  description: "\u4F60\u7684\u653B\u51FB\u9020\u6210\u6301\u7EED\u4F24\u5BB3\uFF0C\u53EF\u4EE5\u53E0\u52A0\u3002\u91CD\u590D\u83B7\u5F97\u65F6\u63D0\u9AD8\u53E0\u52A0\u5C42\u6570\u4E0A\u9650\u3002"
+  effect:
+    rid: 711897090463891456
+  references:
+    version: 2
+    RefIds:
+    - rid: 711897090463891456
+      type: {class: ApplyDamageOverTime, ns: , asm: Assembly-CSharp}
+      data:
+        damageOverTimeSO: {fileID: 11400000, guid: 351310c1f6ebfea46b319470a7e36931,
+          type: 2}
