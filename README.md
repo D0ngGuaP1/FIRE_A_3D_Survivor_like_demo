@@ -2,7 +2,7 @@
 
 > Unity 2022.3 LTS / C# ｜ 击杀敌人 → 收集经验 → 三选一升级 → 组合 Build 的完整循环
 
-![实机 GIF](https://i.imgs.ovh/2026/10/22/43dba474ff2395d296aca1cf2968a605.gif)
+![实机 GIF](example.gif)
 
 ## 试玩
 - WebGL试玩 ：[itch.io](https://d0ngguap1.itch.io/fire)
