@@ -6,7 +6,7 @@
 
 ## 试玩
 - WebGL试玩 ：[itch.io](https://d0ngguap1.itch.io/fire)
-- **Windows 构建包**：[夸克网盘](https://pan.quark.cn/s/c142b1f26f0e)（解压即玩，无需安装 Unity）
+- **Windows 构建包**：[夸克网盘](https://pan.quark.cn/s/c142b1f26f0e)/[GitHub Release](https://github.com/D0ngGuaP1/FIRE_A_3D_Survivor_like_demo/releases/tag/Playable)（解压即运行，无需安装 Unity）
 - 操作：WASD/方向键 移动，武器自动索敌射击，升级时暂停三选一
 - 一局时长约 10 分钟
 
@@ -43,76 +43,75 @@
 下面的 flowchart 和 sequence diagram 展示了`OnHitEffect` 如何从SO资产中初始化，应用到子弹上并将持续状态类效果施加到目标上。
 
 ```mermaid
-%%{init: {'theme': 'neutral'}}%%
 flowchart TB
     %% ================= 资产层 =================
-    subgraph ASSET ["ScriptableObject 资产层(只读配置)"]
+    subgraph ASSET["ScriptableObject 资产层（只读配置）"]
         WSO["WeaponInfoSO"]
         BSO["DamageInfoSO"]
-        RSO["施加状态奖励SO(同一个定义)<br>可创建多份资产, 每份绑定一种具体状态"]
-        SSO["StatusSO(基类)"]
-        DOTSO["DamageOverTimeSO(具体状态资产, 可多份)"]
+        RSO["「施加状态」奖励SO（同一个定义）<br/>可创建多份资产，每份绑定一种具体状态"]
+        SSO["StatusSO（基类）"]
+        DOTSO["DamageOverTimeSO（具体状态资产，可多份）"]
     end
 
     %% ================= 效果类层 =================
-    subgraph EFFECT ["OnHitEffect 多态体系"]
-        OE["OnHitEffect(抽象基类)"]
-        ASE["ApplyStatusEffect(抽象)<br>抽象属性: StatusSO / StatusSnapshot<br>(强制子类实现 -> 奖励侧可多态)<br>Apply(): new 状态实例 -> 交给目标"]
-        ADOE["ApplyDamageOverTimeEffect(具体子类)"]
-        SNAP["StatusSnapshot(抽象基类)"]
-        DOTSNAP["DamageOverTimeSnapshot(快照实例)"]
+    subgraph EFFECT["OnHitEffect 多态体系"]
+        OE["OnHitEffect（抽象基类）"]
+        ASE["ApplyStatusEffect（抽象）<br/>抽象属性：StatusSO / StatusSnapshot<br/>（强制子类实现 → 奖励侧可多态）<br/>Apply()：new 状态实例 → 交给目标"]
+        ADOE["ApplyDamageOverTimeEffect（具体子类）"]
+        SNAP["StatusSnapshot（抽象基类）"]
+        DOTSNAP["DamageOverTimeSnapshot（快照实例）"]
     end
 
     %% ================= 武器侧 =================
-    subgraph WS ["Weapon 组件(武器物体上)"]
+    subgraph WS["Weapon 组件（武器物体上）"]
         W["Weapon"]
-        WI["WeaponInfo 结构体实例<br>onHitEffects: List-OnHitEffect-"]
+        WI["WeaponInfo 结构体实例<br/>onHitEffects : List&lt;OnHitEffect&gt;"]
         BI["DamageInfo 结构体实例"]
     end
 
     %% ================= 子弹侧 =================
-    subgraph BS ["子弹"]
+    subgraph BS["子弹"]
         B["Bullet"]
-        BE["onHitEffects(本发子弹的快照)"]
+        BE["onHitEffects（本发子弹的快照）"]
     end
 
-    OTHER["Collider other(被碰撞目标)"]
+    OTHER["Collider other（被碰撞目标）"]
 
     %% ================= 目标侧 =================
-    subgraph TS ["目标物体"]
+    subgraph TS["目标物体"]
         SH["StatusHandler"]
-        DOT["状态实例<br>new DamageOverTime(dotSnapshot)<br>纯 C# 对象"]
+        DOT["状态实例<br/>new DamageOverTime(dotSnapshot)<br/>纯 C# 对象"]
     end
 
-    %% ---------- 继承关系(虚线) ----------
+    %% ---------- 继承关系（虚线） ----------
     ASE -. 继承 .-> OE
     ADOE -. 继承 .-> ASE
     DOTSO -. 继承 .-> SSO
 
     %% ---------- 抽象属性的子类实现 ----------
-    ADOE -. "override StatusSO 属性<br>-> Inspector 中绑定资产" .-> DOTSO
+    ADOE -. "override StatusSO 属性<br/>→ Inspector 中绑定资产" .-> DOTSO
     ADOE -. "override StatusSnapshot 属性" .-> DOTSNAP
     DOTSO -. "生成快照数据" .-> DOTSNAP
 
     %% ---------- 奖励侧的多态 ----------
-    RSO -. "多态绑定: 字段类型为 OnHitEffect<br>不同资产引用不同子类" .-> ADOE
-    RSO -- "获得奖励: 作为新 OnHitEffect 追加<br>(仅影响之后发射的子弹)" --> WI
+    RSO -. "多态绑定：字段类型为 OnHitEffect<br/>不同资产引用不同子类" .-> ADOE
+    RSO -- "获得奖励：作为新 OnHitEffect 追加<br/>（仅影响之后发射的子弹）" --> WI
 
     %% ---------- ① 初始化 ----------
     W -. 引用资产 .-> WSO
     W -. 引用资产 .-> BSO
-    WSO -- "① Awake: 生成运行时实例" --> WI
-    BSO -- "① Awake: 生成运行时实例" --> BI
+    WSO -- "① Awake：生成运行时实例" --> WI
+    BSO -- "① Awake：生成运行时实例" --> BI
 
     %% ---------- ②③ 开火 ----------
     W -- "② 开火" --> B
-    WI -- "③ 传递 onHitEffects(快照)" --> BE
+    WI -- "③ 传递 onHitEffects（快照）" --> BE
     BI -- "③ 传递" --> B
 
     %% ---------- ④⑤ 命中 ----------
-    B -- "④ 命中: 记录 other" --> OTHER
+    B -- "④ 命中：记录 other" --> OTHER
     B -- "⑤ 遍历列表逐个执行" --> BE
-    BE -- "Apply(other): 多态分发到具体子类" --> ADOE
+    BE -- "Apply(other)：多态分发到具体子类" --> ADOE
 
     %% ---------- ⑥⑦ 施加状态 ----------
     ADOE -- "⑥ new DamageOverTime(dotSnapshot)" --> DOT
@@ -120,7 +119,7 @@ flowchart TB
     OTHER -. 属于同一目标物体 .-> SH
 
     %% ---------- ⑧ 生命周期 ----------
-    SH -- "⑧ 自行管理: Tick / 叠加 / 到期移除" --> DOT
+    SH -- "⑧ 自行管理：Tick / 叠加 / 到期移除" --> DOT
 ```
 ```mermaid
 sequenceDiagram
