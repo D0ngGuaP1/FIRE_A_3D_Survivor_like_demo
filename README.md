@@ -58,7 +58,6 @@ flowchart TB
         OE["OnHitEffect（抽象基类）"]
         ASE["ApplyStatusEffect（抽象）<br/>抽象属性：StatusSO / StatusSnapshot<br/>（强制子类实现 → 奖励侧可多态）<br/>Apply()：new 状态实例 → 交给目标"]
         ADOE["ApplyDamageOverTimeEffect（具体子类）"]
-        SNAP["StatusSnapshot（抽象基类）"]
         DOTSNAP["DamageOverTimeSnapshot（快照实例）"]
     end
 
