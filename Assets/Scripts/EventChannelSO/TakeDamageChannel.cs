@@ -7,7 +7,6 @@ public class TakeDamageChannel : ScriptableObject
 
     public void Raise(OnHitContext ctx)
     {
-        Debug.Log($"[{name}] raised, ID = {GetInstanceID()}, listeners = {(OnRaised != null ? OnRaised.GetInvocationList().Length : 0)}");
         OnRaised?.Invoke(ctx);
     }
 }

@@ -71,9 +71,6 @@ public class GameController : MonoBehaviour
     {
         if (level % 2 == 0)
         {
-#if UNITY_EDITOR
-            Debug.Log("level up: " + level);
-#endif
             currentMaxEnemy++;
         }
         ges.PowerUp();

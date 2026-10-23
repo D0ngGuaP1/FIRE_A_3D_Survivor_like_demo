@@ -49,7 +49,6 @@ public class StatusHandler : MonoBehaviour
     }
     public void ReceiveStatus(StatusInstance status)
     {
-        // if(status.canStack) Debug.Log(status.stackLimit);
         foreach (var instance in instances)
         {
             if (status.GetType() == instance.GetType())

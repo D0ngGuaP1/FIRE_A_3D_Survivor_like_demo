@@ -38,15 +38,12 @@ public class GlobalPopupSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log($"[Listener] {name} registered to channel {takeDamageChannel.GetInstanceID()}");
         takeDamageChannel.OnRaised += ShowPopup;
     }
     private void OnDisable() => takeDamageChannel.OnRaised -= ShowPopup;
 
     private void ShowPopup(OnHitContext ctx)
     {
-        Debug.Log("[Listener] event received, showing popup");
-        
         bool isCrit = ctx.isCrit;
         var pool = isCrit ? criticalDamageTextPool : regularDamageTextPool;
         DamagePopup p =  pool.Get();

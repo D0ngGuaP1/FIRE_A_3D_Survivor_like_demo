@@ -34,8 +34,6 @@ public class Health : MonoBehaviour, IContextDamageable, IFloatDamageable, IExec
         if (IsDead) return;
         Current -= ctx.damageValue;
         
-        Debug.Log($"[Kill] monster take damage, channel ID = {takeDamageChannel.GetInstanceID()}");
-        
         takeDamageChannel.Raise(ctx);
         if (IsDead)
         {

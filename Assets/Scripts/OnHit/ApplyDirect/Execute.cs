@@ -13,7 +13,6 @@ public class Execute : OnHitEffect
         if (health.Current / health.maxHealth > threshold) return;
 
         health.Execute();
-        Debug.Log("Executed");
     }
 
     public override OnHitEffect Clone()
