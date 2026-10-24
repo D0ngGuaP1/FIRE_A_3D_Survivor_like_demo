@@ -6,7 +6,7 @@
 
 ## 试玩
 - WebGL试玩 ：[itch.io](https://d0ngguap1.itch.io/fire)
-- **Windows 构建包**：[夸克网盘](https://pan.quark.cn/s/c142b1f26f0e)/[GitHub Release](https://github.com/D0ngGuaP1/FIRE_A_3D_Survivor_like_demo/releases/tag/Playable)（解压即运行，无需安装 Unity）
+- **Windows 构建包**：[夸克网盘](https://pan.quark.cn/s/ccb4b906e84d)/[GitHub Release](https://github.com/D0ngGuaP1/FIRE_A_3D_Survivor_like_demo/releases/tag/Playable)（解压即运行，无需安装 Unity）
 - 操作：WASD/方向键 移动，武器自动索敌射击，升级时暂停三选一
 - 一局时长约 10 分钟
 
@@ -130,7 +130,7 @@ sequenceDiagram
     participant H as StatusHandler
     participant S as DamageOverTime 实例
 
-    Note over W: Awake：从 WeaponInfoSO / BulletInfoSO<br/>生成 WeaponInfo / BulletInfo 实例
+    Note over W: Awake：从 WeaponInfoSO / DamageInfoSO<br/>生成 WeaponInfo / DamageInfo 实例
     W->>B: 开火：传递 onHitEffects（快照）
     Note over B: 从此刻起与 WeaponInfo 脱钩——<br/>之后奖励修改武器不影响本发子弹
     B->>T: 飞行命中，记录 other
